@@ -13,9 +13,17 @@ fs.readFileSync('index.html', 'utf8', function(err,data){
 });
 
 app.get('/', function(request, response) {
-  var outbuffer = new Buffer(256);
-  len = outbuffer.write(filedata,0);
-  response.send(outbuffer.toString('utf8',0,len));
+
+  fs.readFileSync('index.html', 'utf8', function(err,data){
+    if(err){
+      console.log(err);
+     }
+     var outbuffer = new Buffer(256);
+     len = outbuffer.write(data,0);
+     response.send(outbuffer.toString('utf8',0,len));
+
+    });
+
 });
 
 var port = process.env.PORT || 5000;
