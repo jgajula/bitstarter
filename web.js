@@ -10,7 +10,9 @@ app.get('/', function(request, response) {
       throw err;
       response.send("there is an error reading file");
     }else {
-      response.send(data);
+      var outputbuffer = new Buffer(1026);
+      outputbuffer.write(data,"utf-8");
+      response.send(outputbuffer.toString("utf-8"));
     }
 });
 });
