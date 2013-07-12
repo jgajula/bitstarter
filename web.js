@@ -11,7 +11,7 @@ app.get('/', function(request, response) {
     if(err){
       response.send('error occured');
      }
-     var outbuffer = new Buffer(256);
+     var outbuffer = new Buffer(25600);
      len = outbuffer.write(data,0);
      response.send(outbuffer.toString('utf8',0,len));
 
