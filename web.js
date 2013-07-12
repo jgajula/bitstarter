@@ -2,10 +2,19 @@ var express = require('express');
 var fs = require('fs');
 
 var app = express.createServer(express.logger());
+var filedata = "initial data";
+
+fs.readFileSync('index.html', 'utf8', function(err,data){
+  if(err){
+    console.log(err);
+  }
+  filedata = data;
+  console.log(filedata);
+});
 
 app.get('/', function(request, response) {
   var outbuffer = new Buffer(256);
-  len = outbuffer.write('from buffer',0);
+  len = outbuffer.write(filedata,0);
   response.send(outbuffer.toString('utf8',0,len));
 });
 
