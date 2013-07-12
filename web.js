@@ -4,8 +4,9 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-
-  response.send('back to app get fun');
+  var outbuffer = new Buffer(256);
+  len = outbuffer.write('from buffer',0);
+  response.send(outbuffer.toString('utf8',0,len));
 });
 
 var port = process.env.PORT || 5000;
