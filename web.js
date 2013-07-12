@@ -10,8 +10,9 @@ app.get('/', function(request, response) {
     //  var outputbuffer = new Buffer(1026);
      // outputbuffer.write(data,"utf-8");
      // response.send(outputbuffer.toString("utf-8"));
-       response.send("from fs function");
+     console.log(data);
 });
+response.send("back to app get fun);
 });
 
 var port = process.env.PORT || 5000;
