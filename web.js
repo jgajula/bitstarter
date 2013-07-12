@@ -6,14 +6,11 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
  fs.readFileSync('index.html','utf8',function(err,data){
   
-    if(err) {
-      throw err;
-      response.send("there is an error reading file");
-    }else {
-      var outputbuffer = new Buffer(1026);
-      outputbuffer.write(data,"utf-8");
-      response.send(outputbuffer.toString("utf-8"));
-    }
+    if(err) throw err;
+    //  var outputbuffer = new Buffer(1026);
+     // outputbuffer.write(data,"utf-8");
+     // response.send(outputbuffer.toString("utf-8"));
+       response.send("from fs function");
 });
 });
 
