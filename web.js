@@ -7,7 +7,7 @@ var filedata = "initial data";
 
 app.get('/', function(request, response) {
 
-  fs.readFileSync('index.html', 'utf8', function(err,data){
+var fr =  fs.readFileSync('index.html', 'utf8', function(err,data){
     if(err){
       response.send('error occured');
      }
