@@ -4,19 +4,12 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 var filedata = "initial data";
 
-fs.readFileSync('index.html', 'utf8', function(err,data){
-  if(err){
-    console.log(err);
-  }
-  filedata = data;
-  console.log(filedata);
-});
 
 app.get('/', function(request, response) {
 
   fs.readFileSync('index.html', 'utf8', function(err,data){
     if(err){
-      console.log(err);
+      response.send('error occured');
      }
      var outbuffer = new Buffer(256);
      len = outbuffer.write(data,0);
